@@ -1,4 +1,5 @@
 ﻿using System;
+using MathsLib;
 
 namespace Calculator
 {
@@ -28,25 +29,7 @@ namespace Calculator
                 #endregion User input and variable initialization
 
                 #region Perform calculations
-                switch (oper)
-                {
-                    case ('+'):
-                        result = Add(op1, op2);
-                        break;
-                    case ('-'):
-                        result = Substract(op1, op2);
-                        break;
-                    case ('*'):
-                        result = Multiply(op1, op2);
-                        break;
-                    case ('/'):
-                        result = Divide(op1, op2);
-                        break;
-                    default:
-                        DisplayMessage("Operator not supported");
-                        goto End;
-                }
-
+                result = PerformCalculation(op1, oper, op2);
                 #endregion Perform calculations
 
                 #region Display result
@@ -57,6 +40,31 @@ namespace Calculator
             }
             End:
             DisplayMessage("You choose to leave...");
+        }
+
+        static private int PerformCalculation(int op1, char oper, int op2) {
+
+            MathsBasicOperation mathsOperation = new MathsBasicOperation();
+
+            switch (oper)
+            {
+                case ('+'):
+                    return mathsOperation.Add(op1, op2);
+                case ('-'):
+                    return mathsOperation.Substract(op1, op2);
+                case ('*'):
+                    return mathsOperation.Multiply(op1, op2);
+                case ('/'):
+                    return mathsOperation.Divide(op1, op2);
+
+                    //TODO manage exeption
+                /*default:
+                    DisplayMessage("Operator not supported");
+                    goto End;
+                */
+            }
+            // TODO
+            return 0;
         }
 
         #region GUI
@@ -78,6 +86,7 @@ namespace Calculator
 
         static private void DisplayResult(int op1, char oper, int op2, int result)
         {
+            Console.Clear();
             Console.WriteLine("The result of " + op1 + " " + oper + " " + op2 + " is : " + result);
         }
 
@@ -86,28 +95,5 @@ namespace Calculator
             Console.WriteLine(message);
         }
         #endregion GUI
-
-        #region Perfom calculations
-        static private int Add(int op1, int op2)
-        {
-            return op1 + op2;
-        }
-
-        static private int Substract(int op1, int op2)
-        {
-            return op1 - op2;
-        }
-
-        static private int Multiply(int op1, int op2)
-        {
-            return op1 * op2;
-        }
-
-        static private int Divide(int op1, int op2)
-        {
-            return op1 / op2;
-        }
-
-        #endregion Perfom calculations
     }
 }
