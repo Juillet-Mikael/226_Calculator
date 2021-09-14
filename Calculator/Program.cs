@@ -62,44 +62,50 @@ namespace Calculator
         #region GUI
         static private char AskUserForCharInput(string question)
         {
-            throw new NotImplementedException();
+            char userAnser;
+            Console.WriteLine(question);
+            userAnser = char.Parse(Console.ReadLine());
+            return userAnser;
         }
 
         static private int AskUserForIntegerInput(string question)
         {
-            throw new NotImplementedException();
+            int userAnser;
+            Console.WriteLine(question);
+            userAnser = int.Parse(Console.ReadLine());
+            return userAnser;
         }
 
         static private void DisplayResult(int op1, char oper, int op2, int result)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("The result of " + op1 + " " + oper + " " + op2 + " is : " + result);
         }
 
         static private void DisplayMessage(string message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
         }
         #endregion GUI
 
         #region Perfom calculations
         static private int Add(int op1, int op2)
         {
-            throw new NotImplementedException();
+            return op1 + op2;
         }
 
         static private int Substract(int op1, int op2)
         {
-            throw new NotImplementedException();
+            return op1 - op2;
         }
 
         static private int Multiply(int op1, int op2)
         {
-            throw new NotImplementedException();
+            return op1 * op2;
         }
 
         static private int Divide(int op1, int op2)
         {
-            throw new NotImplementedException();
+            return op1 / op2;
         }
 
         #endregion Perfom calculations
