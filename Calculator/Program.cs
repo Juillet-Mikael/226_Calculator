@@ -11,12 +11,7 @@ namespace Calculator
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            #region Variables declaration
-            int result;
-            int op1;
-            int op2;
-            char oper;
-            #endregion Variables declaration
+            
 
             oper = AskUserForCharInput("Enter operator");
 
